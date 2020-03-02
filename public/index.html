@@ -1,17 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body align="center">
+<div id="MyApp">
+    <h1>
+        Hello from test
+    </h1>
+    <p> Welcome {{name.length > 4 ? name : "too shortt"}} in the first test</p>
+    <p>Your age is {{age}}</p>
+    <p>Your skill is {{skills[0]}}</p>
+    <p> Your test result is {{tst[1].testName}} and Result is {{tst[1].testResult}}</p>
+    <p>{{Hello()}}</p>
+    <p>Your date is : {{date}}</p>
+    <button @click="yourDate">Change to your current date</button>
+    <p v-for="skill in skills">
+        {{skill}}
+    </p>
+</div>
+<script src="js/vue.js" ></script>
+<script>
+    new Vue({
+        el :"#MyApp",
+        data : {
+            name: 'Khalil',
+            age: 24,
+            skills: ['Java', 'C++', 'Python'],
+            date : "Today",
+
+
+            tst: [
+                {
+                    testName: 'FirstText',
+                    testResult: '80%'
+
+                }, {
+                    testName: 'SecondTest',
+                    testResult: '70%'
+
+                }, {
+                    testName: 'thirdText',
+                    testResult: '60%'
+
+                }],
+            nickname : 'Vvoox',
+            html : '<div>HEllo from Vue</div>'
+        },
+        methods:{
+            Hello : function(){
+                var say = "Test String";
+                var caracter = this.name + " "+this.age + " "+this.skills[2];
+                return caracter ;
+            },
+            yourDate : function () {
+                this.date = Date();
+                return this.date;
+            }
+
+
+        }
+
+    })
+</script>
+
+</body>
 </html>
