@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Hello Tester</title>
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body align="center">
@@ -11,15 +11,13 @@
         Hello from test
     </h1>
     <p> Welcome {{name.length > 4 ? name : "too shortt"}} in the first test</p>
-    <p>Your age is {{age}}</p>
-    <p>Your skill is {{skills[0]}}</p>
-    <p> Your test result is {{tst[1].testName}} and Result is {{tst[1].testResult}}</p>
-    <p>{{Hello()}}</p>
+    <p v-once>date is : {{date}}</p>
     <p>Your date is : {{date}}</p>
     <button @click="yourDate">Change to your current date</button>
-    <p v-for="skill in skills">
-        {{skill}}
-    </p>
+    <h2>Skills</h2>
+    <a v-bind:href="imageSource">
+        <img v-blind:src="imageSource" >
+    </a>
 </div>
 <script src="js/vue.js" ></script>
 <script>
@@ -30,8 +28,9 @@
             age: 24,
             skills: ['Java', 'C++', 'Python'],
             date : "Today",
-
-
+            imageSource : 'images/1.jpeg',
+            imagealt : 'Your alternative',
+            imglink : 'www.google.com',
             tst: [
                 {
                     testName: 'FirstText',
