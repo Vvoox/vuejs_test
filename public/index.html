@@ -14,10 +14,14 @@
     <p v-once>date is : {{date}}</p>
     <p>Your date is : {{date}}</p>
     <button @click="yourDate">Change to your current date</button>
-    <h2>Skills</h2>
+    <p> You number is {{counter}}</p>
+    <button @click="counteradd">Augment </button>
+    <input v-model="name">
     <a v-bind:href="imageSource">
-        <img v-blind:src="imageSource" >
+        <img v-bind:src="imageSource" >
     </a>
+
+
 </div>
 <script src="js/vue.js" ></script>
 <script>
@@ -26,11 +30,13 @@
         data : {
             name: 'Khalil',
             age: 24,
+            counter : 1,
             skills: ['Java', 'C++', 'Python'],
             date : "Today",
             imageSource : 'images/1.jpeg',
             imagealt : 'Your alternative',
             imglink : 'www.google.com',
+
             tst: [
                 {
                     testName: 'FirstText',
@@ -57,10 +63,15 @@
             yourDate : function () {
                 this.date = Date();
                 return this.date;
+            },
+            counteradd:function () {
+                this.counter += 1 ;
+                return this.counter;
+                }
             }
 
 
-        }
+
 
     })
 </script>
